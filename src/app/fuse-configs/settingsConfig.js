@@ -10,8 +10,8 @@ const settingsConfig = {
       toolbar: 'mainThemeLight',
       footer: 'mainThemeDark'
    },
-   // apiServerURL: 'http://54.172.22.179:4000' // Production Environment
-   apiServerURL: 'http://10.70.5.84:8000' // Test Environment
+   apiServerURL: 'http://3.18.60.150' // Production Environment
+   // apiServerURL: 'http://10.70.5.84:8000' // Test Environment
 };
 
 export default settingsConfig;
