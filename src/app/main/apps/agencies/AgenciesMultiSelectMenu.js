@@ -43,7 +43,7 @@ function AgenciesMultiSelectMenu(props) {
                   <ListItemIcon className="min-w-40">
                      <Icon>delete</Icon>
                   </ListItemIcon>
-                  <ListItemText primary="Remove" />
+                  <ListItemText primary="一括削除" />
                </MenuItem>
             </MenuList>
          </Menu>

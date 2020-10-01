@@ -1,15 +1,17 @@
 import React from 'react';
-import {Icon, Input, Paper, Typography} from '@material-ui/core';
-import {ThemeProvider} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
+import { Icon, Input, Paper, Typography } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+import { FuseAnimate } from '@fuse';
+import { useDispatch, useSelector } from 'react-redux';
+import { Fab } from '@material-ui/core';
 import * as Actions from './store/actions';
+import { showMessage } from 'app/store/actions';
 
-function UsersHeader(props)
-{
+function UsersHeader(props) {
    const dispatch = useDispatch();
-   const searchText = useSelector(({usersApp}) => usersApp.users.searchText);
-   const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
+   const searchText = useSelector(({ usersApp }) => usersApp.users.searchText);
+   const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
+   const salutariums = useSelector(({ usersApp }) => usersApp.users.salutariums);
 
    return (
       <div className="flex flex-1 items-center justify-between p-8 sm:p-24">
@@ -49,6 +51,29 @@ function UsersHeader(props)
                </FuseAnimate>
             </ThemeProvider>
          </div>
+         <FuseAnimate animation="transition.expandIn" delay={300}>
+            <Fab
+               color="secondary"
+               aria-label="add"
+               onClick={ev => {
+                  if (salutariums.length === 0) {
+                     dispatch(showMessage({
+                        message: '療養所は登録されていません。まず療養所を登録してください。',
+                        autoHideDuration: 3000,
+                        anchorOrigin: {
+                           vertical: 'top',
+                           horizontal: 'right'
+                        },
+                        variant: 'warning'
+                     }))
+                  } else {
+                     dispatch(Actions.openNewUserDialog());
+                  }
+               }}
+            >
+               <Icon>add</Icon>
+            </Fab>
+         </FuseAnimate>
       </div>
    );
 }

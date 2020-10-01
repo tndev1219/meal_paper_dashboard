@@ -87,7 +87,7 @@ export function deSelectAllSalutariums() {
    };
 }
 
-export function openNewBedAccessoryDialog() {
+export function openNewSalutariumDialog() {
    return {
       type: OPEN_NEW_SALUTARIUM_DIALOG
    };
@@ -156,11 +156,9 @@ export function addSalutarium(newSalutarium) {
 
 export function updateSalutarium(salutarium) {
    return (dispatch) => {
-      console.log(salutarium)
       const request = axios.patch(`${settingConfig.apiServerURL}/api/salutarium/${salutarium.id}/`, salutarium);
 
       return request.then((response) => {
-         console.log(response.data)
          if (!response.data.success) {
             dispatch(showMessage({
                message: '失敗しました。',
@@ -199,7 +197,6 @@ export function updateSalutarium(salutarium) {
 
 export function removeSalutarium(salutariumId) {
    return (dispatch) => {
-      console.log(salutariumId)
       const request = axios.delete(`${settingConfig.apiServerURL}/api/salutarium/${salutariumId}/`);
 
       return request.then((response) => {

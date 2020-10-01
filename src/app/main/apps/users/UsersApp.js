@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import UsersList from './UsersList';
 import UsersHeader from './UsersHeader';
+import UserDialog from './UserDialog';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
@@ -15,6 +16,10 @@ function UsersApp(props)
 
    useEffect(() => {
       dispatch(Actions.getUsers());
+   }, [dispatch]);
+
+   useEffect(() => {
+      dispatch(Actions.getSalutariums());
    }, [dispatch]);
 
    return (
@@ -36,6 +41,7 @@ function UsersApp(props)
             ref={pageLayout}
             innerScroll
          />
+         <UserDialog/>
       </React.Fragment>
    )
 }

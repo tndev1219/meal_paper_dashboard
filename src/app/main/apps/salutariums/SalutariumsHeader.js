@@ -68,7 +68,7 @@ function SalutariumsHeader(props)
                         variant: 'warning'
                      }))
                   } else {
-                     dispatch(Actions.openNewBedAccessoryDialog());
+                     dispatch(Actions.openNewSalutariumDialog());
                   }
                }}
             >

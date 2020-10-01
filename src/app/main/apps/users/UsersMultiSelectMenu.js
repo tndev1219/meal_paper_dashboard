@@ -3,19 +3,19 @@ import {Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, MenuList} 
 import * as Actions from './store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
-function SalutariumsMultiSelectMenu(props)
+function UsersMultiSelectMenu(props)
 {
    const dispatch = useDispatch();
-   const selectedSalutariumIds = useSelector(({salutariumsApp}) => salutariumsApp.salutariums.selectedSalutariumIds);
+   const selectedUserIds = useSelector(({usersApp}) => usersApp.users.selectedUserIds);
 
    const [anchorEl, setAnchorEl] = useState(null);
 
-   function openSelectedSalutariumMenu(event)
+   function openSelectedUserMenu(event)
    {
       setAnchorEl(event.currentTarget);
    }
 
-   function closeSelectedSalutariumMenu()
+   function closeSelectedUserMenu()
    {
       setAnchorEl(null);
    }
@@ -24,23 +24,23 @@ function SalutariumsMultiSelectMenu(props)
       <React.Fragment>
          <IconButton
             className="p-0"
-            aria-owns={anchorEl ? 'selectedSalutariumsMenu' : null}
+            aria-owns={anchorEl ? 'selectedUsersMenu' : null}
             aria-haspopup="true"
-            onClick={openSelectedSalutariumMenu}
+            onClick={openSelectedUserMenu}
          >
             <Icon>more_horiz</Icon>
          </IconButton>
          <Menu
-            id="selectedSalutariumsMenu"
+            id="selectedUsersMenu"
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
-            onClose={closeSelectedSalutariumMenu}
+            onClose={closeSelectedUserMenu}
          >
             <MenuList>
                <MenuItem
                   onClick={() => {
-                     dispatch(Actions.removeSalutariums(selectedSalutariumIds));
-                     closeSelectedSalutariumMenu();
+                     dispatch(Actions.removeUsers(selectedUserIds));
+                     closeSelectedUserMenu();
                   }}
                >
                   <ListItemIcon className="min-w-40">
@@ -54,5 +54,5 @@ function SalutariumsMultiSelectMenu(props)
    );
 }
 
-export default SalutariumsMultiSelectMenu;
+export default UsersMultiSelectMenu;
 

@@ -15,7 +15,7 @@ const initialState = {
    agencies: []
 };
 
-const bedaccessoriesReducer = function (state = initialState, action) {
+const salutariumsReducer = function (state = initialState, action) {
    switch (action.type) {
       case Actions.GET_SALUTARIUMS: {
          return {
@@ -122,4 +122,4 @@ const bedaccessoriesReducer = function (state = initialState, action) {
    }
 };
 
-export default bedaccessoriesReducer;
+export default salutariumsReducer;
