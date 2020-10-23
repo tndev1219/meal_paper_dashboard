@@ -149,7 +149,6 @@ function UserDialog(props) {
             patient.weight = parseFloat(patient.weight)
             patient.height = parseFloat(patient.height)
             patient.money = parseFloat(patient.money)
-            patient.unit_layer = parseInt(patient.unit_layer)
             patient.salutarium = form.salutarium;
             patient.password = 'password';
             patient.role = 1;
@@ -365,7 +364,6 @@ function UserDialog(props) {
                            value={form.unit_layer}
                            onChange={handleChange}
                            variant="outlined"
-                           type="number"
                            required
                            fullWidth
                         />
