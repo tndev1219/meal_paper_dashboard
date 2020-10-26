@@ -143,7 +143,7 @@ function UsersList(props) {
                },
                {
                   Header: "会社",
-                  accessor: "emergency_contact",
+                  accessor: "company",
                   filterable: true
                },
                {
